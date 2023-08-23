@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temperature Converter</title>
+    <link rel="stylesheet" href="tc.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Temperature Converter</h1>
+        <label for="celsius">Enter Celsius temperature:</label>
+        <input type="number" id="celsius" placeholder="Celsius">
+        <button onclick="convertTemperature()">Convert</button>
+
+        <div class="result">
+            <p>Fahrenheit: <span id="fahrenheit"></span> °F</p>
+            <p>Kelvin: <span id="kelvin"></span> K</p>
+        </div>
+    </div>
+
+    <script src="tc.html"></script>
+</body>
+
+</html>
+function convertTemperature() {
+const celsiusInput = document.getElementById("celsius");
+const fahrenheitOutput = document.getElementById("fahrenheit");
+const kelvinOutput = document.getElementById("kelvin");
+
+if (celsiusInput.value === "") {
+alert("Please enter a valid temperature in Celsius.");
+return;
+}
+
+const celsius = parseFloat(celsiusInput.value);
+const fahrenheit = (celsius * 9 / 5) + 32;
+const kelvin = celsius + 273.15;
+
+fahrenheitOutput.textContent = fahrenheit.toFixed(2);
+kelvinOutput.textContent = kelvin.toFixed(2);
+}
